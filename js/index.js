@@ -23,8 +23,8 @@ $(document).ready(function () {
 
     for (var i = 0; i < 1000; i++) {
       $("#test").html(i);
-      $("#result").append("Produto: " + cart[i].name + "</br>" +
-                          "Preço: " + cart[i].price + "</br>" + "</br>");
+      $("#result").append("→ Produto: " + cart[i].name + "</br>" +
+                          "Preço: "+"R$" + cart[i].price + "</br>" + "</br>");
     }
   }
 })

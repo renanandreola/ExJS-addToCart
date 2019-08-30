@@ -20,6 +20,11 @@ $(document).ready(function () {
   var cart = sessionStorage.getItem("cart");
   if (cart !== null) {
     cart = JSON.parse(cart);
-    console.info("Carrinho 1 produto", cart[0].name);
+
+    for (var i = 0; i < 1000; i++) {
+      $("#test").html(i);
+      $("#result").append("Produto: " + cart[i].name + "</br>" +
+                          "Preço: " + cart[i].price + "</br>" + "</br>");
+    }
   }
 })

@@ -1,4 +1,4 @@
-function addToCart (product) {
+function addToCart(product) {
   var cart = JSON.parse(sessionStorage.getItem("cart"));
   if (!cart) {
     cart = [];
@@ -24,7 +24,14 @@ $(document).ready(function () {
     for (var i = 0; i < 1000; i++) {
       $("#test").html(i);
       $("#result").append("→ Produto: " + cart[i].name + "</br>" +
-                          "Preço: "+"R$" + cart[i].price + "</br>" + "</br>");
+                          "→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onclick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
     }
+    function excluir() {
+      for (var i = 0; i < 1000; i++) {
+        $("#result").hide();
+        $("#result").style.display = "none";
+      }
+    }
+    
   }
 })

@@ -23,18 +23,22 @@ $(document).ready(function () {
 
     for (var i = 0; i < 1000; i++) {
       $("#test").html(i);
-      $("#result").append("→ Produto: " + cart[i].name + "</br>" +
-                          "→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onClick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
+      $("#result").append("<li id="+i+">→ Produto: " + cart[i].name + "</br>" +
+                          "   → Preço: "+"R$" + cart[i].price + "</br></li>" + "<button onclick='excluir("+ i +")' type='button' id='button" + i +"'>Excluir Produto</button>" + "</br>"+ "</br>");
     }
-    function excluir() {
-      for (var i = 0; i < 1000; i++) {
-        $("#result").hide();
-        $("#result").style.display = "none";
 
-        //$("#result").append("→ Produto: " + cart[i].name + "</br>" +
-        //"→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onClick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
-      }
-    }
-    
   }
 })
+function excluir(value) {
+  var cart = JSON.parse(sessionStorage.getItem("cart"));
+  console.info(cart)
+  console.info(cart[value])
+  var removeItem = cart[value];
+  var newcart = [];
+  newcart = cart.splice($.inArray(removeItem, cart), 1);
+  location.reload();
+  return sessionStorage.setItem("cart", JSON.stringify(cart));
+  // for (var i = 0; i < 1000; i++) {
+  //   $("#result").hide();
+  //   $("#result").style.display = "none";
+  }

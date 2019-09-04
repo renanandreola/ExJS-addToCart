@@ -24,12 +24,15 @@ $(document).ready(function () {
     for (var i = 0; i < 1000; i++) {
       $("#test").html(i);
       $("#result").append("→ Produto: " + cart[i].name + "</br>" +
-                          "→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onclick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
+                          "→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onClick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
     }
     function excluir() {
       for (var i = 0; i < 1000; i++) {
         $("#result").hide();
         $("#result").style.display = "none";
+
+        //$("#result").append("→ Produto: " + cart[i].name + "</br>" +
+        //"→ Preço: "+"R$" + cart[i].price + "</br>" + "<button onClick='excluir()' type='button' id='remove'>Excluir Produto</button>" + "</br>"+ "</br>");
       }
     }
     

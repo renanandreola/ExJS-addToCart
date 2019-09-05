@@ -11,24 +11,28 @@ $(document).ready(function () {
   $('form').submit(function () {
       var productName = $('#product').val();
       var productPrice = $('#price').val();
+      var productImage = $('#image').val();
       addToCart({
         name: productName,
-        price: productPrice
+        price: productPrice,
+        image: productImage
       });
   });
 
   var cart = sessionStorage.getItem("cart");
   if (cart !== null) {
     cart = JSON.parse(cart);
-
+    var total = 0;
     for (var i = 0; i < 1000; i++) {
       $("#test").html(i);
-      $("#result").append("<li id="+i+">→ Produto: " + cart[i].name + "</br>" +
-                          "   → Preço: "+"R$" + cart[i].price + "</br></li>" + "<button onclick='excluir("+ i +")' type='button' id='button" + i +"'>Excluir Produto</button>" + "</br>"+ "</br>");
-    }
+      $("#result").append("<li id="+i+"> → Produto: " + cart[i].name + "</br>" +"→ Preço: "+"R$" + cart[i].price + "</br>" + "<img src='" + cart[i].image + "' width='150px' height='150px'></li>" + "</br>" + "<button onclick='excluir("+ i +")' type='button' id='button" + i +"'>Excluir Produto</button>" + "</br>"+ "</br>");
+      total += parseInt(cart[i].price);
 
+      $("#total").html("R$: " + total);
+    }
   }
 })
+
 function excluir(value) {
   var cart = JSON.parse(sessionStorage.getItem("cart"));
   console.info(cart)

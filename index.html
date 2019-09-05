@@ -21,6 +21,10 @@
               <label>Preço</label>
               <input type="text" name="price" value="" id="price" class="form-control">
             </div>
+            <div class="col-md-12">
+              <label>URL do produto</label>
+              <input type="text" name="image" value="" id="image" class="form-control">
+            </div>
             <div class="col-md-12 mt-4">
               <button type="submit" class="btn btn-primary" name="button">Enviar</button>
             </div>
@@ -33,8 +37,10 @@
 
           </ul>
         <!--<button type="remove" onclick="remove()" id="remove" class="btn btn-danger"></button>-->
-
       </div>
+      <div class="jumbotron mt-4" id="total-container">
+        <h1>Total: </h1>
+        <div  class="mt-4" id="total"></div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
